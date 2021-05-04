@@ -57,8 +57,12 @@ function createWallet(userData) {
 
 function returnWallets(userData) {
     return new Promise(async (resolve, reject) => {
-        try {
+        try {            
             let walletData = await checkIfWalletExists(userData);
+            if(walletData.data.length === 0) {
+                // no wallet yet
+                return resolve({error: false, message: "", data: []});
+            }
             resolve({error: false, message: "", data: walletData.data[0]});
         }
         catch(e) {

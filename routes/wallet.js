@@ -10,11 +10,17 @@ const walletModel = require('../models/wallet');
 router.get('/', async (req,res) => {
     try {
         let walletData = await walletModel.returnWallets(req.decoded);
-        let walletResponse = {
-            name: walletData.data.name,
-            address: walletData.data.address,
-            balance: walletData.data.balance,
-        }        
+        let walletResponse = null;
+        if(walletData.data.length === 0) {
+            walletResponse = [];
+        }
+        else {
+            walletResponse = {
+                name: walletData.data.name,
+                address: walletData.data.address,
+                balance: walletData.data.balance,
+            };
+        }  
         return res.json({error: false, message: "", data: walletResponse});
     }
     catch(e) {
