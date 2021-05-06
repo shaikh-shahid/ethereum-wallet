@@ -62,7 +62,8 @@ function createTransaction(txData) {
                     toAddress: txData.recieverAddress,
                     amount: txData.amount,
                     txId: id,
-                    trackUrl: url
+                    trackUrl: url,
+                    datetime: new Date()
                 };
                 mongoConnection
                     .collection("transactions")
