@@ -46,11 +46,11 @@ function createWallet(userData) {
                  resolve({
                      error: false,
                      data: {
-                         name: userData.walletData,
+                         name: newWalletData.name,
                          balance: newWalletData.balance,
                          address: newWalletData.address,
-                         mnemonic: mnemonic,
-                     }
+                     },
+                     mnemonic: mnemonic
                  });
              });
         }
