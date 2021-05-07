@@ -45,7 +45,12 @@ function createWallet(userData) {
                  // return data
                  resolve({
                      error: false,
-                     data: mnemonic
+                     data: {
+                         name: userData.walletData,
+                         balance: newWalletData.balance,
+                         address: newWalletData.address,
+                         mnemonic: mnemonic,
+                     }
                  });
              });
         }
