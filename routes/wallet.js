@@ -12,7 +12,7 @@ router.get('/', async (req,res) => {
         let walletData = await walletModel.returnWallets(req.decoded);
         let walletResponse = null;
         if(walletData.data.length === 0) {
-            walletResponse = [];
+            walletResponse = {};
         }
         else {
             walletResponse = {

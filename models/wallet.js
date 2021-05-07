@@ -68,7 +68,7 @@ function returnWallets(userData) {
                 // no wallet yet
                 return resolve({error: false, message: "", data: []});
             }
-            resolve({error: false, message: "", data: walletData.data[0]});
+            resolve({error: false, message: "", data: walletData.data});
         }
         catch(e) {
             reject(e);
